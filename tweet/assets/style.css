@@ -1,0 +1,32 @@
+body {
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tweet-container {
+  position: relative;
+  /* border: 1px solid #e6ecf0; */
+  border: none;
+  border-radius: 8px;
+  width: 600px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.permalink-tweet {
+  border-radius: initial;
+}
+
+.quoted-tweet {
+  border: 1px solid #e6ecf0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.emoji {
+  vertical-align: bottom;
+  width: 1.2em;
+}

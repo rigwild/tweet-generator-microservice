@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="/tweet/assets/twitter_core.bundleTEST.css">
+  <link rel="stylesheet" href="/tweet/assets/twitter_more_1.bundle.css">
+  <link rel="stylesheet" href="/tweet/assets/style.css">
+</head>
+<body>
+  <div class="tweet-container">
+    <div class="tweet permalink-tweet js-actionable-user js-actionable-tweet js-original-tweet with-social-proof logged-in js-initial-focus focus">
+      <div class="content clearfix">
+        <div class="permalink-header">
+          <a class="account-group js-account-group js-action-profile js-user-profile-link js-nav">
+          <img class="avatar js-action-profile-avatar" src="<%= tweetData.avatar %>" alt="" id="pfpOutput">
+          <span class="FullNameGroup">
+          <strong class="fullname show-popup-with-id u-textTruncate" id="nameOutput"><%- tweetData.pseudo %></strong><span>&rlm;</span>
+          <% if (tweetData.verified === true) { %>
+          <span class="UserBadges" id="verifiedOutput" style="visibility: visible;">
+            <span class="Icon Icon--verified"><span class="u-hiddenVisually">Verified account</span></span>
+          </span>
+          <% } %>
+          <span class="UserNameBreak">&nbsp;</span></span><span class="username u-dir u-textTruncate" dir="ltr" data-aria-label-part="">@<b id="usernameOutput"><%= tweetData.handle %></b></span></a>
+          <div class="follow-bar">
+            <div class="user-actions btn-group not-following not-muting can-dm including  ">
+              <span class="user-actions-follow-button js-follow-btn follow-button">
+              <button type="button" class="
+                EdgeButton
+                EdgeButton--secondary
+                EdgeButton--medium 
+                button-text
+                follow-text" id="followOutput" style="display: none;">
+              <span aria-hidden="true">Follow</span>
+              <span class="u-hiddenVisually">Follow <span class="username u-dir u-textTruncate" dir="ltr">@<b>tweetgenonline</b></span></span>
+              </button>
+              <button type="button" class="
+                EdgeButton
+                EdgeButton--primary
+                EdgeButton--medium 
+                button-text
+                following-text" id="followingOutput" style="display: block;">
+              <span aria-hidden="true">Following</span>
+              <span class="u-hiddenVisually">Following <span class="username u-dir u-textTruncate" dir="ltr">@<b>tweetgenonline</b></span></span>
+              </button>
+              <button type="button" class="
+                EdgeButton
+                EdgeButton--danger
+                EdgeButton--medium 
+                button-text
+                unfollow-text">
+              <span aria-hidden="true">Unfollow</span>
+              <span class="u-hiddenVisually">Unfollow <span class="username u-dir u-textTruncate" dir="ltr">@<b>tweetgenonline</b></span></span>
+              </button>
+              </span>
+            </div>
+          </div>
+          <div class="ProfileTweet-action ProfileTweet-action--more js-more-ProfileTweet-actions">
+            <div class="dropdown">
+              <button class="ProfileTweet-actionButton u-textUserColorHover tw-dropdown-toggle js-dropdown-toggle" type="button">
+                <div class="IconContainer js-tooltip" title="More">
+                  <span class="Icon Icon--small"></span>
+                  <span class="u-hiddenVisually">More</span>
+                </div>
+              </button>
+              <div class="dropdown-menu is-autoCentered">
+                <div class="dropdown-caret">
+                  <div class="caret-inner"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="js-tweet-text-container">
+        <p class="TweetTextSize TweetTextSize--jumbo js-tweet-text tweet-text" lang="en" id="tweetOutput"><%- tweetData.content %></p>
+      </div>
+
+      <!-- QUOTED -->
+      <% if (tweetData.quoted) { %>
+      <div class="quoted-tweet">
+        <div class="tweet permalink-tweet js-actionable-user js-actionable-tweet js-original-tweet with-social-proof logged-in js-initial-focus focus">
+          <div class="content clearfix">
+            <div class="permalink-header">
+              <a class="account-group js-account-group js-action-profile js-user-profile-link js-nav">
+              <img class="avatar js-action-profile-avatar" src="<%= tweetData.quoted.avatar %>" alt="" id="pfpOutput">
+              <span class="FullNameGroup">
+              <strong class="fullname show-popup-with-id u-textTruncate" id="nameOutput"><%- tweetData.quoted.pseudo %></strong><span>&rlm;</span>
+              <% if (tweetData.quoted.verified === true) { %>
+              <span class="UserBadges" id="verifiedOutput" style="visibility: visible;">
+                <span class="Icon Icon--verified"><span class="u-hiddenVisually">Verified account</span></span>
+              </span>
+              <% } %>
+              <span class="UserNameBreak">&nbsp;</span></span><span class="username u-dir u-textTruncate" dir="ltr" data-aria-label-part="">@<b id="usernameOutput"><%= tweetData.quoted.handle %></b></span></a>
+              <div class="follow-bar">
+                <div class="user-actions btn-group not-following not-muting can-dm including  ">
+                  <span class="user-actions-follow-button js-follow-btn follow-button">
+                  <button type="button" class="
+                    EdgeButton
+                    EdgeButton--secondary
+                    EdgeButton--medium 
+                    button-text
+                    follow-text" id="followOutput" style="display: none;">
+                  <span aria-hidden="true">Follow</span>
+                  <span class="u-hiddenVisually">Follow <span class="username u-dir u-textTruncate" dir="ltr">@<b>tweetgenonline</b></span></span>
+                  </button>
+                  <button type="button" class="
+                    EdgeButton
+                    EdgeButton--primary
+                    EdgeButton--medium 
+                    button-text
+                    following-text" id="followingOutput" style="display: block;">
+                  <span aria-hidden="true">Following</span>
+                  <span class="u-hiddenVisually">Following <span class="username u-dir u-textTruncate" dir="ltr">@<b>tweetgenonline</b></span></span>
+                  </button>
+                  <button type="button" class="
+                    EdgeButton
+                    EdgeButton--danger
+                    EdgeButton--medium 
+                    button-text
+                    unfollow-text">
+                  <span aria-hidden="true">Unfollow</span>
+                  <span class="u-hiddenVisually">Unfollow <span class="username u-dir u-textTruncate" dir="ltr">@<b>tweetgenonline</b></span></span>
+                  </button>
+                  </span>
+                </div>
+              </div>
+              <div class="ProfileTweet-action ProfileTweet-action--more js-more-ProfileTweet-actions">
+                <div class="dropdown">
+                  <button class="ProfileTweet-actionButton u-textUserColorHover tw-dropdown-toggle js-dropdown-toggle" type="button">
+                    <div class="IconContainer js-tooltip" title="More">
+                      <span class="Icon Icon--small"></span>
+                      <span class="u-hiddenVisually">More</span>
+                    </div>
+                  </button>
+                  <div class="dropdown-menu is-autoCentered">
+                    <div class="dropdown-caret">
+                      <div class="caret-inner"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="js-tweet-text-container">
+            <p class="TweetTextSize TweetTextSize--jumbo js-tweet-text tweet-text" lang="en" id="tweetOutput"><%- tweetData.quoted.content %></p>
+          </div>
+          <div class="js-tweet-details-fixer tweet-details-fixer">
+            <div class="client-and-actions">
+              <span class="metadata">
+              <span id="timeOutput"><%= new Date(tweetData.quoted.date).toLocaleTimeString('en-US') %></span> - <span id="yearOutput"><%= new Date(tweetData.quoted.date).toDateString() %></span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% } %>
+      <!--/ QUOTED -->
+      
+      <div class="js-tweet-details-fixer tweet-details-fixer">
+        <div class="client-and-actions">
+          <span class="metadata">
+            <span id="timeOutput"><%= new Date(tweetData.date).toLocaleTimeString('en-US') %></span> - <span id="yearOutput"><%= new Date(tweetData.date).toDateString() %></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

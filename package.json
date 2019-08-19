@@ -1,0 +1,24 @@
+{
+  "name": "tweet-generator-microservice",
+  "version": "0.1.0",
+  "description": "Generate fake tweets images as a microservice",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "chrome-aws-lambda": "1.11.1",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0",
+    "puppeteer-core": "^1.11.0",
+    "twemoji": "^12.1.2"
+  },
+  "devDependencies": {
+    "@now/node": "^0.12.6",
+    "@types/express": "^4.17.1",
+    "@types/node": "^12.7.2",
+    "@types/puppeteer-core": "^1.9.0"
+  },
+  "engines": {
+    "node": "8.10.x"
+  }
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tweet-generator-microservice</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+      @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+      * {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        box-sizing: border-box;
+        font-family: 'Lato', sans-serif;
+      }
+      a {
+        color: #1b799e;
+        text-decoration: none;
+      }
+      p {
+        padding: 5px;
+      }
+
+      header {
+        text-align: center;
+        padding: 20px;
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @media all and (max-width: 800px) {
+        main {
+        grid-template-columns: repeat(1, 1fr);
+        }
+      }
+      .tweet-example {
+        text-align: center;
+        padding: 40px;
+        border: 2px dashed #e8e8e8;
+        margin-top: -1px;
+        margin-left: -1px;
+      }
+      .tweet-example pre {
+        text-align: left;
+        width: fit-content;
+        margin: 0 auto;
+        padding: 15px;
+        border: 1px solid #e4e4e4;
+        border-radius: 8px;
+        font-family: 'Roboto Mono', monospace;
+      }
+      .tweet-example img {
+        padding: 15px;
+        margin: 15px;
+        width: 500px;
+        border: 1px solid #e4e4e4;
+        border-radius: 8px;
+        background: transparent url(https://loading.io/spinners/rolling/lg.curve-bars-loading-indicator.gif) no-repeat scroll center center;
+        background-size: 50px;
+        min-height: 50px;
+      }
+      .tweet-example h2 {
+        margin: 5px;
+      }
+
+      .github {
+        text-align: center;
+        margin: 30px 0px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>tweet-generator-microservice</h1>
+      <p>
+        The tweet image generation endpoint is located at <a href="/screenshot">/screenshot</a>.
+      </p>
+    </header>
+
+    <main>
+      <div class="tweet-example">
+        <h1>Simple tweet</h1>
+
+        <h2>Result</h2>
+        <a href="/screenshot?tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22}"><img src="/screenshot?tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22}" /></a>
+
+        <h2>Tweet data</h2>
+        <pre>{
+  pseudo: 'My cool pseudo 🎉',
+  handle: 'my_handle',
+  content: 'My awesome tweet content 💖',
+  verified: true,
+  date: new Date(),
+  retweets: 54371,
+  likes: 54371,
+  replies: 543,
+  avatar: 'https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg'
+}</pre>
+      </div>
+
+      <div class="tweet-example">
+        <h1>Simple tweet without stats</h1>
+
+        <h2>Result</h2>
+        <a href="/screenshot?style=no-stats&tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22}"><img src="/screenshot?style=no-stats&tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22}" /></a>
+
+        <h2>Tweet data</h2>
+        <pre>{
+  pseudo: 'My cool pseudo 🎉',
+  handle: 'my_handle',
+  content: 'My awesome tweet content 💖',
+  verified: true,
+  date: new Date(),
+  retweets: 54371,
+  likes: 54371,
+  replies: 543,
+  avatar: 'https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg'
+}</pre>
+      </div>
+
+      <div class="tweet-example">
+        <h1>Quoted tweet</h1>
+
+        <h2>Result</h2>
+        <a href="/screenshot?tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T23:44:22.777Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22,%22quoted%22:{%22pseudo%22:%22Quoted%20pseudo%20%F0%9F%A4%B7%E2%80%8D%E2%99%82%EF%B8%8F%22,%22handle%22:%22quoted_handle%22,%22content%22:%22quoted%20tweet%20content%20%F0%9F%98%8C%22,%22verified%22:true,%22date%22:%222019-08-19T22:42:48.577Z%22,%22retweets%22:1,%22likes%22:14,%22replies%22:21,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/46/hiking-1246836__340.jpg%22}}"><img src="/screenshot?tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T23:44:22.777Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22,%22quoted%22:{%22pseudo%22:%22Quoted%20pseudo%20%F0%9F%A4%B7%E2%80%8D%E2%99%82%EF%B8%8F%22,%22handle%22:%22quoted_handle%22,%22content%22:%22quoted%20tweet%20content%20%F0%9F%98%8C%22,%22verified%22:true,%22date%22:%222019-08-19T22:42:48.577Z%22,%22retweets%22:1,%22likes%22:14,%22replies%22:21,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/46/hiking-1246836__340.jpg%22}}" /></a>
+
+        <h2>Tweet data</h2>
+        <pre>{
+  pseudo: 'My cool pseudo 🎉',
+  handle: 'my_handle',
+  content: 'My awesome tweet content 💖',
+  verified: true,
+  date: new Date(),
+  retweets: 54371,
+  likes: 54371,
+  replies: 543,
+  avatar: 'https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg',
+  quoted: {
+    pseudo: 'Quoted pseudo 🤷‍♂️',
+    handle: 'quoted_handle',
+    content: 'quoted tweet content 😌',
+    verified: true,
+    date: new Date(Date.now() - 3694200),
+    retweets: 1,
+    likes: 14,
+    replies: 21,
+    avatar: 'https://cdn.pixabay.com/photo/2016/03/09/16/46/hiking-1246836__340.jpg'
+  }
+}</pre>
+      </div>
+
+      <div class="tweet-example">
+        <h1>Quoted tweet without stats</h1>
+
+        <h2>Result</h2>
+        <a href="/screenshot?style=no-stats&tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22,%22quoted%22:{%22pseudo%22:%22Quoted%20pseudo%20%F0%9F%A4%B7%E2%80%8D%E2%99%82%EF%B8%8F%22,%22handle%22:%22quoted_handle%22,%22content%22:%22quoted%20tweet%20content%20%F0%9F%98%8C%22,%22verified%22:true,%22date%22:%222019-08-19T18:48:22.531Z%22,%22retweets%22:1,%22likes%22:14,%22replies%22:21,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/46/hiking-1246836__340.jpg%22}}"><img src="/screenshot?style=no-stats&tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22,%22quoted%22:{%22pseudo%22:%22Quoted%20pseudo%20%F0%9F%A4%B7%E2%80%8D%E2%99%82%EF%B8%8F%22,%22handle%22:%22quoted_handle%22,%22content%22:%22quoted%20tweet%20content%20%F0%9F%98%8C%22,%22verified%22:true,%22date%22:%222019-08-19T18:48:22.531Z%22,%22retweets%22:1,%22likes%22:14,%22replies%22:21,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/46/hiking-1246836__340.jpg%22}}" /></a>
+
+        <h2>Tweet data</h2>
+        <pre>{
+  pseudo: 'My cool pseudo 🎉',
+  handle: 'my_handle',
+  content: 'My awesome tweet content 💖',
+  verified: true,
+  date: new Date(),
+  retweets: 54371,
+  likes: 54371,
+  replies: 543,
+  avatar: 'https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg',
+  quoted: {
+    pseudo: 'Quoted pseudo 🤷‍♂️',
+    handle: 'quoted_handle',
+    content: 'quoted tweet content 😌',
+    verified: true,
+    date: new Date(Date.now() - 3694200),
+    retweets: 1,
+    likes: 14,
+    replies: 21,
+    avatar: 'https://cdn.pixabay.com/photo/2016/03/09/16/46/hiking-1246836__340.jpg'
+  }
+}</pre>
+      </div>
+    </main>
+
+    <div class="github">
+      <a href="https://github.com/rigwild/tweet-generator-microservice" target="_blank" rel="noopener">Available on GitHub</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,194 @@
+@font-face {
+  font-family: bebasNeue;
+  src: url('./BebasNeue.otf');
+}
+
+@font-face {
+  font-family: helveticaNeueR;
+  src: url('./HelveticaNeueRegular.woff2'), url('./HelveticaNeueRegular.otf');
+}
+
+@font-face {
+  font-family: helveticaNeueB;
+  src: url('./HelveticaNeueBold.woff2'), url('./HelveticaNeueBold.otf');
+}
+
+.navbar {
+  font-family: 'helveticaNeueB', 'Overpass', sans-serif !important;
+  font-size: 30px;
+  background-color: transparent !important;
+  width: 100%;
+  font-weight: bold;
+}
+
+.collnav {
+  display: none !important;
+}
+
+@media (min-width: 1088px) {
+  .nav-item {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }   
+}
+
+@media (min-width: 944px) {
+  .nav-item {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 785px) {
+  .mainnav {
+    display: none !important;
+  }
+
+  .collnav {
+    display: block !important;
+  }
+}
+
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  right: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 10px;
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  background-color: #f0f0f0;
+  font-family: 'helveticaNeueB', 'Overpass', sans-serif !important;
+  font-size: 18pt !important;
+  font-weight: bold;
+}
+
+.sidenav a {
+  color: #181818 !important;
+  font-size: 18pt !important;
+}
+
+.sidenav .dropdown-item {
+  font-size: 14pt;
+}
+
+.pagetitle {
+  font-size: 20pt;
+  font-family: 'helveticaNeueB', 'Overpass', sans-serif;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+label, .preview {
+  font-family: 'helveticaNeueB', 'Overpass', sans-serif;
+  font-weight: bold;
+  font-size: 14pt;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.preview {
+  text-align: center;
+}
+
+input, select, option {
+  font-family: 'helveticaNeueR', sans-serif !important;
+}
+
+input[type=file] {
+  display: block;
+  font-size: 1rem;
+}
+
+.inputinfo {
+  font-family: 'helveticaNeueR', 'Overpass', sans-serif;
+  font-size: 10pt;
+  color: rgb(109, 117, 125);
+}
+
+textarea { 
+  font-family: 'helveticaNeueR', 'Overpass', sans-serif !important;
+  font-size: 12pt;
+}
+
+.date {
+  display: inline-block !important;
+}
+
+.first-date-thing {
+  width: 60px !important;
+}
+
+.second-date-thing {
+  width: 100px !important;
+  color: rgb(109, 117, 125) !important;
+}
+
+.third-date-thing {
+  width: 100px !important;
+}
+
+option {
+  padding: 0;
+}
+
+.disclaimer {
+  font-family: 'helveticaNeueR', 'Overpass', sans-serif !important;
+  font-size: 12pt;
+}
+
+.permalink-tweet-container {
+  width: 600px;
+  margin: auto;
+}
+
+.simulatedLink {
+  color: #1B95E0;
+}
+
+.generatedImage {
+  width: 700px;
+  margin: auto;
+}
+
+.column1 {
+  margin: 0 auto;
+}
+
+.download-button {
+  display: block !important;
+  font-size: 16pt !important;
+  margin: auto;
+}
+
+.generatedImage {
+  background-color: #e9ecef;
+  border-radius: 6px;
+  font-family: 'helveticaNeueR', 'Overpass', sans-serif;
+  font-size: 14pt;
+  padding: 10px 8px;
+  text-align: center;
+  display: none;
+}
+
+.ad {
+  margin: auto;
+}
+
+.version {
+  text-align: right;
+  font-family: 'helveticaNeueR', 'Overpass', sans-serif;
+  font-size: 10pt;
+}
+
+.jsLoadError {
+  font-family: 'helveticaNeueR', 'Overpass', sans-serif;
+  font-size: 10pt;
+  color: red;
+}
+
+.jsLoadError b {
+  font-family: 'helveticaNeueB', 'Overpass', sans-serif;
+}

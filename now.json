@@ -1,0 +1,29 @@
+{
+"version": 2,
+  "builds": [
+    { "src": "public/*", "use": "@now/static" },
+    { "src": "tweet/assets/*", "use": "@now/static" },
+    { "src": "screenshot.ts", "use": "@now/node", "config": { "maxLambdaSize": "40mb" } },
+    { "src": "tweetRenderer.ts", "use": "@now/node" }
+  ],
+  "routes": [
+    { "src": "/tweet/assets/(.*)", "dest": "/tweet/assets/$1" },
+    {
+      "src": "/tweet",
+      "dest": "/tweetRenderer.ts",
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      }
+    },
+    {
+      "src": "/screenshot",
+      "dest": "/screenshot.ts",
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      }
+    },
+    { "src": "/", "dest": "/public/index.html" },
+    { "src": "/(.*)", "dest": "/public/$1" }
+  ],
+  "alias": "tweet-generator.now.sh"
+}
