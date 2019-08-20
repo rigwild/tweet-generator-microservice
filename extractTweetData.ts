@@ -13,7 +13,7 @@ export default async (req: NowRequest, res: NowResponse) => {
 
   let tweetData
   try {
-    tweetData = JSON.parse(tweetDataRaw)
+    tweetData = JSON.parse(decodeURIComponent(tweetDataRaw))
   }
   catch (error) {
     await resThrow(res, ['tweetData query is not a valid JSON object'])

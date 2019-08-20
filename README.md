@@ -75,7 +75,7 @@ const setup = async () => {
   }
 
   // Create the uri (encodeURI is important as stringified JSON can contain invalid query characters)
-  const uri = encodeURI(`https://tweet-generator.now.sh/screenshot?style=classic&tweetData=${JSON.stringify(tweet).replace('#', encodeURIComponent('#'))}`)
+  const uri = `https://tweet-generator.now.sh/screenshot?style=classic&tweetData=${encodeURIComponent(JSON.stringify(tweet))}`)
   const { body } = await fetch(uri)
     .then(async res => {
       // The endpoint returned errors, throw
