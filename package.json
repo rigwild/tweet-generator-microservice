@@ -8,6 +8,7 @@
     "publish": "now --target production"
   },
   "dependencies": {
+    "atob": "^2.1.2",
     "chrome-aws-lambda": "1.11.1",
     "ejs": "^2.6.2",
     "express": "^4.17.1",
@@ -20,8 +21,5 @@
     "@types/express": "^4.17.1",
     "@types/node": "^12.7.2",
     "@types/puppeteer-core": "^1.9.0"
-  },
-  "engines": {
-    "node": "8.10.x"
   }
 }

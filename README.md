@@ -24,6 +24,10 @@ Append the [URI queries](#uri-queries) to [https://tweet-generator.now.sh/screen
 | `no-stats` | Normal tweet without statistics |
 
 ### Tweet data object
+A JSON stringified object containing the tweet's properties.
+
+If you have UTF-16 (like recent emojis) content, JSON stringify, URI encode and convert to Base64. See [Implementation example](#implementation-example).
+
 | Name | type | Required | Default |
 | ---- | ---- | :------: | ------- |
 | pseudo | `string` | ✅ |  |
@@ -74,8 +78,15 @@ const setup = async () => {
     }
   }
 
-  // Create the uri (encodeURI is important as stringified JSON can contain invalid query characters)
+  // Create the uri (encodeURIComponent is important as stringified JSON can contain invalid query characters)
   const uri = `https://tweet-generator.now.sh/screenshot?style=classic&tweetData=${encodeURIComponent(JSON.stringify(tweet))}`)
+
+  /*
+  // If you have UTF-16 (like recent emojis), JSON stringify, URI encode and convert to Base64
+  const btoa = require('btoa')
+  const uri = `https://tweet-generator.now.sh/screenshot?style=classic&tweetData=${btoa(encodeURIComponent(JSON.stringify(tweet)))}`
+  */
+
   const { body } = await fetch(uri)
     .then(async res => {
       // The endpoint returned errors, throw

@@ -1,4 +1,5 @@
 import { NowRequest, NowResponse } from '@now/node'
+const atob = require('atob')
 
 const resThrow = (res: NowResponse, errors: string[], status: number = 400) => new Promise(() =>
   res.status(status).json({ errors }).end(() => {
@@ -16,7 +17,12 @@ export default async (req: NowRequest, res: NowResponse) => {
     tweetData = JSON.parse(decodeURIComponent(tweetDataRaw))
   }
   catch (error) {
-    await resThrow(res, ['tweetData query is not a valid JSON object'])
+    try {
+      tweetData = JSON.parse(decodeURIComponent(atob(tweetDataRaw)))
+    }
+    catch (error) {
+      await resThrow(res, ['tweetData query is not a valid JSON object'])
+    }
   }
 
   let errors = []
