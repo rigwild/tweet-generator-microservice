@@ -4,6 +4,9 @@
   "description": "Generate fake tweets images as a microservice",
   "private": true,
   "license": "MIT",
+  "scripts": {
+    "publish": "now --target production"
+  },
   "dependencies": {
     "chrome-aws-lambda": "1.11.1",
     "ejs": "^2.6.2",

@@ -25,7 +25,7 @@ app.get('/tweet', async (req, res) => {
     ...tweetData,
     pseudo: emojify(tweetData.pseudo),
     content: emojify(tweetData.content),
-    quoted: tweetData.quoted ? {
+    quoted: tweetData.quoted && tweetData.quoted.content ? {
       ...tweetData.quoted,
       pseudo: emojify(tweetData.quoted.pseudo),
       content: emojify(tweetData.quoted.content)
