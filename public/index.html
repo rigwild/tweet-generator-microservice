@@ -33,11 +33,6 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
       }
-      @media all and (max-width: 800px) {
-        main {
-        grid-template-columns: repeat(1, 1fr);
-        }
-      }
       .tweet-example {
         text-align: center;
         padding: 40px;
@@ -53,11 +48,14 @@
         border: 1px solid #e4e4e4;
         border-radius: 8px;
         font-family: 'Roboto Mono', monospace;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        word-break: break-all;
       }
       .tweet-example img {
         padding: 15px;
         margin: 15px;
-        width: 500px;
+        width: 75%;
         border: 1px solid #e4e4e4;
         border-radius: 8px;
         background: transparent url(https://loading.io/spinners/rolling/lg.curve-bars-loading-indicator.gif) no-repeat scroll center center;
@@ -66,6 +64,30 @@
       }
       .tweet-example h2 {
         margin: 5px;
+      }
+      .tweet-links {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 75%;
+        margin: 0 auto;
+      }
+      @media all and (max-width: 800px) {
+        main {
+          grid-template-columns: repeat(1, 1fr);
+        }
+        .tweet-example pre {
+          font-size: 10px;
+          margin: 0;
+        }
+        .tweet-example img {
+          padding: 0;
+          margin: 0;
+          width: 100%;
+        }
+        .tweet-links {
+          width: 100%;
+        }
       }
 
       .github {
@@ -79,6 +101,7 @@
     <header>
       <h1>tweet-generator-microservice</h1>
       <p>
+        The tweet webpage generation endpoint is located at <a href="/tweet">/tweet</a>.<br>
         The tweet image generation endpoint is located at <a href="/screenshot">/screenshot</a>.
       </p>
     </header>
@@ -88,7 +111,11 @@
         <h1>Simple tweet</h1>
 
         <h2>Result</h2>
-        <a href="/screenshot?tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22}"><img src="/screenshot?tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22}" /></a>
+        <img src="/screenshot?tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22}" />
+        <div class="tweet-links">
+          <a href="/tweet?tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22}">Tweet webpage</a>
+          <a href="/screenshot?tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22}">Tweet image</a>
+        </div>
 
         <h2>Tweet data</h2>
         <pre>{
@@ -108,7 +135,11 @@
         <h1>Simple tweet without stats</h1>
 
         <h2>Result</h2>
-        <a href="/screenshot?style=no-stats&tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22}"><img src="/screenshot?style=no-stats&tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22}" /></a>
+        <img src="/screenshot?style=no-stats&tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22}" />
+        <div class="tweet-links">
+          <a href="/tweet?style=no-stats&tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22}">Tweet webpage</a>
+          <a href="/screenshot?style=no-stats&tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22}">Tweet image</a>
+        </div>
 
         <h2>Tweet data</h2>
         <pre>{
@@ -128,7 +159,11 @@
         <h1>Quoted tweet</h1>
 
         <h2>Result</h2>
-        <a href="/screenshot?tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T23:44:22.777Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22,%22quoted%22:{%22pseudo%22:%22Quoted%20pseudo%20%F0%9F%A4%B7%E2%80%8D%E2%99%82%EF%B8%8F%22,%22handle%22:%22quoted_handle%22,%22content%22:%22quoted%20tweet%20content%20%F0%9F%98%8C%22,%22verified%22:true,%22date%22:%222019-08-19T22:42:48.577Z%22,%22retweets%22:1,%22likes%22:14,%22replies%22:21,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/46/hiking-1246836__340.jpg%22}}"><img src="/screenshot?tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T23:44:22.777Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22,%22quoted%22:{%22pseudo%22:%22Quoted%20pseudo%20%F0%9F%A4%B7%E2%80%8D%E2%99%82%EF%B8%8F%22,%22handle%22:%22quoted_handle%22,%22content%22:%22quoted%20tweet%20content%20%F0%9F%98%8C%22,%22verified%22:true,%22date%22:%222019-08-19T22:42:48.577Z%22,%22retweets%22:1,%22likes%22:14,%22replies%22:21,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/46/hiking-1246836__340.jpg%22}}" /></a>
+        <img src="/screenshot?tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T23:44:22.777Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22,%22quoted%22:{%22pseudo%22:%22Quoted%20pseudo%20%F0%9F%A4%B7%E2%80%8D%E2%99%82%EF%B8%8F%22,%22handle%22:%22quoted_handle%22,%22content%22:%22quoted%20tweet%20content%20%F0%9F%98%8C%22,%22verified%22:true,%22date%22:%222019-08-19T22:42:48.577Z%22,%22retweets%22:1,%22likes%22:14,%22replies%22:21,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/46/hiking-1246836__340.jpg%22}}" />
+        <div class="tweet-links">
+          <a href="/tweet?tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T23:44:22.777Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22,%22quoted%22:{%22pseudo%22:%22Quoted%20pseudo%20%F0%9F%A4%B7%E2%80%8D%E2%99%82%EF%B8%8F%22,%22handle%22:%22quoted_handle%22,%22content%22:%22quoted%20tweet%20content%20%F0%9F%98%8C%22,%22verified%22:true,%22date%22:%222019-08-19T22:42:48.577Z%22,%22retweets%22:1,%22likes%22:14,%22replies%22:21,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/46/hiking-1246836__340.jpg%22}}">Tweet webpage</a>
+          <a href="/screenshot?tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T23:44:22.777Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22,%22quoted%22:{%22pseudo%22:%22Quoted%20pseudo%20%F0%9F%A4%B7%E2%80%8D%E2%99%82%EF%B8%8F%22,%22handle%22:%22quoted_handle%22,%22content%22:%22quoted%20tweet%20content%20%F0%9F%98%8C%22,%22verified%22:true,%22date%22:%222019-08-19T22:42:48.577Z%22,%22retweets%22:1,%22likes%22:14,%22replies%22:21,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/46/hiking-1246836__340.jpg%22}}">Tweet image</a>
+        </div>
 
         <h2>Tweet data</h2>
         <pre>{
@@ -159,7 +194,11 @@
         <h1>Quoted tweet without stats</h1>
 
         <h2>Result</h2>
-        <a href="/screenshot?style=no-stats&tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22,%22quoted%22:{%22pseudo%22:%22Quoted%20pseudo%20%F0%9F%A4%B7%E2%80%8D%E2%99%82%EF%B8%8F%22,%22handle%22:%22quoted_handle%22,%22content%22:%22quoted%20tweet%20content%20%F0%9F%98%8C%22,%22verified%22:true,%22date%22:%222019-08-19T18:48:22.531Z%22,%22retweets%22:1,%22likes%22:14,%22replies%22:21,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/46/hiking-1246836__340.jpg%22}}"><img src="/screenshot?style=no-stats&tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22,%22quoted%22:{%22pseudo%22:%22Quoted%20pseudo%20%F0%9F%A4%B7%E2%80%8D%E2%99%82%EF%B8%8F%22,%22handle%22:%22quoted_handle%22,%22content%22:%22quoted%20tweet%20content%20%F0%9F%98%8C%22,%22verified%22:true,%22date%22:%222019-08-19T18:48:22.531Z%22,%22retweets%22:1,%22likes%22:14,%22replies%22:21,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/46/hiking-1246836__340.jpg%22}}" /></a>
+        <img src="/screenshot?style=no-stats&tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22,%22quoted%22:{%22pseudo%22:%22Quoted%20pseudo%20%F0%9F%A4%B7%E2%80%8D%E2%99%82%EF%B8%8F%22,%22handle%22:%22quoted_handle%22,%22content%22:%22quoted%20tweet%20content%20%F0%9F%98%8C%22,%22verified%22:true,%22date%22:%222019-08-19T18:48:22.531Z%22,%22retweets%22:1,%22likes%22:14,%22replies%22:21,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/46/hiking-1246836__340.jpg%22}}" />
+        <div class="tweet-links">
+          <a href="/tweet?style=no-stats&tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22,%22quoted%22:{%22pseudo%22:%22Quoted%20pseudo%20%F0%9F%A4%B7%E2%80%8D%E2%99%82%EF%B8%8F%22,%22handle%22:%22quoted_handle%22,%22content%22:%22quoted%20tweet%20content%20%F0%9F%98%8C%22,%22verified%22:true,%22date%22:%222019-08-19T18:48:22.531Z%22,%22retweets%22:1,%22likes%22:14,%22replies%22:21,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/46/hiking-1246836__340.jpg%22}}">Tweet webpage</a>
+          <a href="/screenshot?style=no-stats&tweetData={%22pseudo%22:%22My%20cool%20pseudo%20%F0%9F%8E%89%22,%22handle%22:%22my_handle%22,%22content%22:%22My%20awesome%20tweet%20content%20%F0%9F%92%96%22,%22verified%22:true,%22date%22:%222019-08-19T19:48:22.531Z%22,%22retweets%22:54371,%22likes%22:54371,%22replies%22:543,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/47/woman-1246844_960_720.jpg%22,%22quoted%22:{%22pseudo%22:%22Quoted%20pseudo%20%F0%9F%A4%B7%E2%80%8D%E2%99%82%EF%B8%8F%22,%22handle%22:%22quoted_handle%22,%22content%22:%22quoted%20tweet%20content%20%F0%9F%98%8C%22,%22verified%22:true,%22date%22:%222019-08-19T18:48:22.531Z%22,%22retweets%22:1,%22likes%22:14,%22replies%22:21,%22avatar%22:%22https://cdn.pixabay.com/photo/2016/03/09/16/46/hiking-1246836__340.jpg%22}}">Tweet image</a>
+        </div>
 
         <h2>Tweet data</h2>
         <pre>{

@@ -1,12 +1,17 @@
 # tweet-generator-microservice
 Generate fake tweets images as a [Now](https://zeit.co/now) microservice.
 
-Support [Twemoji](https://twemoji.twitter.com/) and tweet quotes.
+Supports [Twemoji](https://twemoji.twitter.com/) and tweet quotes.
+
+## How it works
+An express server renders the tweet using an EJS template. A puppeteer instance is fired and screenshots the page. The image is then returned by the endpoint.
 
 ## Usage
-Append the following url queries to [https://tweet-generator.now.sh/screenshot](https://tweet-generator.now.sh/screenshot) generate a tweet image 
+Append the [URI queries](#uri-queries) to [https://tweet-generator.now.sh/tweet](https://tweet-generator.now.sh/tweet) to generate a tweet webpage.
 
-### Url query
+Append the [URI queries](#uri-queries) to [https://tweet-generator.now.sh/screenshot](https://tweet-generator.now.sh/screenshot) to generate a tweet image .
+
+### URI queries
 | Name | Description |
 | ---- | ----------- |
 | `style` | Tweet template to use (see [Tweet templates](#tweet-templates)) |
@@ -97,3 +102,5 @@ Feel free to open a [pull request](https://github.com/rigwild/tweet-generator-mi
 
 ## License
 [The MIT license](./LICENSE)
+
+Author of this service is not affiliated in any way with `Twitter, Inc`.
